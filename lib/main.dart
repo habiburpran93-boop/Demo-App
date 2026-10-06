@@ -23,8 +23,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeActivity extends StatelessWidget {
+class HomeActivity extends StatefulWidget {
   const HomeActivity({super.key});
+
+  @override
+  State<HomeActivity> createState() => _HomeActivityState();
+}
+
+class _HomeActivityState extends State<HomeActivity> {
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -170,15 +177,16 @@ class HomeActivity extends StatelessWidget {
                 time: "6 hours ago",
               ),
 
-
               activityItem(
                 title: "Task Done",
                 time: "6 hours ago",
               ),
+
               activityItem(
                 title: "Task Closed",
                 time: "6 hours ago",
               ),
+
               activityItem(
                 title: "Meeting Scheduled",
                 time: "2 hours ago",
@@ -186,6 +194,43 @@ class HomeActivity extends StatelessWidget {
             ],
           ),
         ),
+      ),
+
+      // Bottom Navigation Bar
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: selectedIndex,
+
+        onDestinationSelected: (int index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Home',
+          ),
+
+          NavigationDestination(
+            icon: Icon(Icons.shopping_bag_outlined),
+            selectedIcon: Icon(Icons.shopping_bag),
+            label: 'Orders',
+          ),
+
+          NavigationDestination(
+            icon: Icon(Icons.task_outlined),
+            selectedIcon: Icon(Icons.task),
+            label: 'Tasks',
+          ),
+
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            selectedIcon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
