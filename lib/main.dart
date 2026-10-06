@@ -175,7 +175,10 @@ class HomeActivity extends StatelessWidget {
                 title: "Task Done",
                 time: "6 hours ago",
               ),
-
+              activityItem(
+                title: "Task Closed",
+                time: "6 hours ago",
+              ),
               activityItem(
                 title: "Meeting Scheduled",
                 time: "2 hours ago",
