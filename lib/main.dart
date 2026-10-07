@@ -188,6 +188,11 @@ class _HomeActivityState extends State<HomeActivity> {
               ),
 
               activityItem(
+                title: "Dil Closed",
+                time: "10 hours ago",
+              ),
+
+              activityItem(
                 title: "Meeting Scheduled",
                 time: "2 hours ago",
               ),
